@@ -23,8 +23,9 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - clean
-                command: maven
+                - -c
+                - "mvn clean package"
+                command: /bin/sh
                 run_if: passed
     - Stage2:
         fetch_materials: true
@@ -38,6 +39,7 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - install
-                command: mvn
+                - -c
+                - "mvn clean package"
+                command: /bin/sh
                 run_if: passed
